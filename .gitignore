@@ -14,7 +14,6 @@ logs
 *.log
 
 # Misc
-.DS_Store
 .fleet
 .idea
 
@@ -22,3 +21,11 @@ logs
 .env
 .env.*
 !.env.example
+
+# OSX
+.DS_Store
+.AppleDouble
+.LSOverride
+.AppleDB
+.AppleDesktop
+.apdisk

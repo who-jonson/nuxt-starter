@@ -2,15 +2,29 @@
   "name": "nuxt-app",
   "private": true,
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "dev": "nuxi dev",
+    "build": "nuxi build",
+    "preview": "nuxi preview",
+    "generate": "nuxi generate",
+    "postinstall": "nuxi prepare",
+    "lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx,vue}\"",
+    "lint:fix": "npm run lint --fix"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
-    "@types/node": "^18.17.3",
-    "nuxt": "^3.6.5"
-  }
+    "@nuxt/schema": "^3.6.5",
+    "@nuxt/test-utils": "^3.6.5",
+    "@testing-library/vue": "^7.0.0",
+    "@types/node": "^18.17.5",
+    "@whoj/eslint-config": "^1.4.2",
+    "@whoj/utils": "^1.7.5",
+    "eslint": "^8.47.0",
+    "eslint-plugin-anti-trojan-source": "^1.1.1",
+    "eslint-plugin-security-node": "^1.1.1",
+    "eslint-plugin-testing-library": "^5.11.1",
+    "nuxt": "^3.6.5",
+    "nuxt-vitest": "^0.10.2",
+    "vitest": "^0.34.1"
+  },
+  "packageManager": "pnpm@8.6.12"
 }

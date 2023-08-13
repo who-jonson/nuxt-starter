@@ -1,0 +1,30 @@
+{
+  "root": true,
+
+  "env": {
+    "browser": true,
+    "node": true
+  },
+
+  "extends": [
+    "@whoj",
+    "plugin:security-node/recommended",
+    "plugin:anti-trojan-source/recommended"
+  ],
+
+  "plugins": [
+    "security-node",
+    "anti-trojan-source"
+  ],
+
+  "overrides": [
+    {
+      "extends": ["plugin:testing-library/vue"],
+      // Enable eslint-plugin-testing-library rules or preset only for matching testing files!
+      "files": [
+        "**/__tests__/**/*.[jt]s?(x)",
+        "**/?(*.)+(spec|test).[jt]s?(x)"
+      ]
+    }
+  ]
+}
