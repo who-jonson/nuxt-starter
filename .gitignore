@@ -1,7 +1,18 @@
 *.lock*
 *.log*
+.idea
 .nuxt
 .output
 node_modules
 yarn.lock
 dist
+
+# OSX
+.DS_Store
+.AppleDouble
+.LSOverride
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
