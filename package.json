@@ -1,8 +1,7 @@
 {
-  "name": "my-module",
-  "version": "1.0.0",
-  "description": "My new Nuxt module",
-  "repository": "your-org/my-module",
+  "name": "@org/my-module",
+  "version": "0.0.0",
+  "description": "",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -13,9 +12,19 @@
     }
   },
   "main": "./dist/module.cjs",
+  "module": "./dist/module.mjs",
   "types": "./dist/types.d.ts",
+  "typesVersions": {
+    "<=4.9": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
+  },
   "files": [
-    "dist"
+    "dist",
+    "*.d.ts"
   ],
   "scripts": {
     "prepack": "nuxt-module-build",
@@ -23,23 +32,49 @@
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground",
     "release": "npm run lint && npm run test && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
-    "lint": "eslint .",
+    "lint": "eslint \"{**/*,*}.{js,cjs,mjs,ts,cts,mts,vue}\"",
+    "lint:fix": "pnpm lint --fix",
     "test": "vitest run",
+    "test:type": "tsc --noEmit",
     "test:watch": "vitest watch"
   },
-  "dependencies": {
-    "@nuxt/kit": "^3.6.5"
-  },
   "devDependencies": {
-    "@types/node": "^18.17.3",
+    "@types/node": "^18.17.5",
     "@nuxt/devtools": "latest",
-    "@nuxt/eslint-config": "^0.1.1",
     "@nuxt/module-builder": "^0.4.0",
     "@nuxt/schema": "^3.6.5",
     "@nuxt/test-utils": "^3.6.5",
+    "@whoj/eslint-config": "^1.4.2",
     "changelogen": "^0.5.4",
-    "eslint": "^8.46.0",
+    "eslint": "^8.47.0",
+    "npm-run-all": "^4.1.5",
     "nuxt": "^3.6.5",
+    "typescript": "^5.1.6",
     "vitest": "^0.34.1"
+  },
+  "dependencies": {
+    "@nuxt/kit": "^3.6.5",
+    "@whoj/utils-core": "^1.7.5"
+  },
+  "peerDependencies": {
+    "nuxt": "^3.6.5"
+  },
+  "homepage": "https://github.com/org/my-module#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/org/my-module.git"
+  },
+  "bugs": "https://github.com/org/my-module/issues",
+  "author": {
+    "name": "Jonson B.",
+    "email": "www.jbc.bd@gmail.com"
+  },
+  "packageManager": "pnpm@8.6.12",
+  "pnpm": {
+    "peerDependencyRules": {
+      "allowedVersions": {
+        "@nuxt/test-utils": "*"
+      }
+    }
   }
 }
